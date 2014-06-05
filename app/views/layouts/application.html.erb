@@ -8,9 +8,63 @@
 </head>
 <body style="background-color:#ff0;">
 
-<%= link_to image_tag('rails.png', :size => '200x40'), '/' %>
+<div id="header">
+	<div id="headerArea">
+		<div class="header_txt">
+			<h1>侍エンジニア塾H1タグ</h1>
+		</div>
+		<div class="header_logo">
+			<%= link_to image_tag('logo.gif', :size => '200x40'), '/' %>
+		</div>
+		<div id="gnavi">
+			<ul id="globalnavi">
+				<li><%= link_to 'HOME', posts_path %></li>
+				<li><%= link_to '新規作成', new_post_path %></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="content" class="floatwrap">
+	<div id="contentArea" class="floatwrap">
+		<div id="main" class="floatwrap">
+			<div id="notice">
+				<%= notice %>
+			</div>
+			<div id="alert">
+				<%= alert %>
+			</div>
 
 <%= yield %>
+
+		</div>
+		<div id="side" class="floatwrap">
+			<p>sidebar</p>
+		</div>
+
+	</div>
+</div>
+
+<div id="footer">
+	<div id="footerArea" class="floatwrap">
+		<div class="footer_navi">
+			<ul>
+				<li><%= link_to 'Home', posts_path %></li>
+				<li><%= link_to '新規投稿', new_post_path %></li>
+			</ul>
+		</div>
+		<div class="footer_logo">
+			<p>
+				〒150-0002<br>
+        		東京都渋谷区渋谷1-1-1<br>
+        		TEL:03-1234-5678
+			</p>
+		</div>
+		<div class="footer_copy">
+			Copyright (C) 2014 <a href="/">侍エンジニア塾</a> All Rights Reserved.
+		</div>
+	</div>
+</div>
 
 </body>
 </html>
