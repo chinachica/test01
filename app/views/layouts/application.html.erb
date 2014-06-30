@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body style="background-color:#ff0;">
+<body style="background-color:#fff;">
 
 <div id="header">
 	<div id="headerArea">
@@ -20,6 +20,10 @@
 			<ul id="globalnavi">
 				<li><%= link_to 'HOME', posts_path %></li>
 				<li><%= link_to '新規作成', new_post_path %></li>
+				<li><%= link_to 'カテゴリ一覧', category_list_path %></li>
+				<li><%= link_to '日別アーカイブ', day_path %></li>
+				<li><%= link_to '月別アーカイブ', month_path %></li>
+				<li><%= link_to '年別アーカイブ', year_path %></li>
 			</ul>
 		</div>
 	</div>
@@ -49,8 +53,8 @@
 	<div id="footerArea" class="floatwrap">
 		<div class="footer_navi">
 			<ul>
-				<li><%= link_to 'Home', posts_path %></li>
-				<li><%= link_to '新規投稿', new_post_path %></li>
+				<li><%= link_to 'カテゴリ一覧', category_list_path %></li>
+				<li><%= link_to 'カテゴリ管理', categories_path %></li>
 			</ul>
 		</div>
 		<div class="footer_logo">

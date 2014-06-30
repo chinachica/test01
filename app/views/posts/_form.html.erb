@@ -18,6 +18,11 @@
 	<%= f.text_area :content, :rows =>5 %>
 </div>
 
+<div class="">
+	<%= f.label :category_id %>
+	<%= f.collection_select :category_id, Category.all, :id, :name %>
+</div>
+
 <div class="actions">
 	<%= f.submit %>
 </div>

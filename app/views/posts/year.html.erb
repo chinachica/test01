@@ -1,0 +1,17 @@
+<h2>年別アーカイブ一覧</h2>
+
+<div id="year">
+	<ul>
+		<% @post_years.each do |year, posts| %>
+		<li>
+			<% dl = year.strftime("%Y") %>
+			<a href="/year_list/<%= dl %>">
+
+			<% y = year.strftime("%Y年") %>
+			<%= y %>
+			</a>
+			(<%= posts.count %>)
+		</li>
+		<% end %>
+	</ul>
+</div>

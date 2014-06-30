@@ -1,0 +1,52 @@
+<h2>カテゴリ一覧</h2>
+
+<table>
+  <tr>
+    <th>カテゴリ名</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @categories.each do |category| %>
+
+  <tr>
+    <td><%= category.name %></td>
+    <td><%= link_to t('link.Show'), category %></td>
+    <td><%= link_to t('link.Edit'), edit_category_path(category) %></td>
+    <td><%= link_to t('link.Destroy'), category, method: :delete, data: { confirm: '削除してよろしいですか？' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t('link.NewCategory'), new_category_path %>
+
+
+<br /><br />
+
+
+<h2>Listing categories</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @categories.each do |category| %>
+  <tr>
+    <td><%= category.name %></td>
+    <td><%= link_to 'Show', category %></td>
+    <td><%= link_to 'Edit', edit_category_path(category) %></td>
+    <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Category', new_category_path %>

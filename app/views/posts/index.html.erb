@@ -1,11 +1,47 @@
+<%# 現在時刻取得 %>
+<% t = Time.now %>
+<%# 整数に変換 %>
+<% timeInteger = t.tv_sec %>
+<%# NEWを出す日数を設定 %>
+<% newd = 7 %>
+<%# 経過時間を計算(設定日数×24時間) %>
+<% newd = newd * 86400 %>
+
+
+
+
 <div id="notice"><%= notice %></div>
 
 <h2>Posts</h2>
 
+<%# 検索フォーム %>
+<%= form_for @search_form, :url => posts_path, :html => {:method => :get} do |f| %>
+	<%= select_date(@search_date, :prefix => "search_from") %>
+	〜
+	<%= select_date(@search_date, :prefix => "search_to") %>
+
+	<%= f.search_field :q %>
+	<%= f.submit '検索' %>
+<% end %>
+
+
 <ul>
 <% @posts.each do |post| %>
 <li id="post_<%= post.id %>">
+
+<%# Post作成時間を取得（整数に変換） %>
+<% pt = post.created_at.tv_sec %>
+<%# Post作成時間から経過時間を計算 %>
+<% pt = timeInteger - pt %>
+
+<% time_ago_in_words(post.created_at) %>
+
+
+
 	<%= link_to post.title, post_path(post) %>（<%= post.comments.size %>）
+	<% if pt < newd then %>
+	<%= image_tag 'new.gif', :size => '31×7' %>
+	<% end %>
 	<%= link_to 'Edit', edit_post_path(post) %>
 	<%= link_to 'Delete' ,post, :confirm => 'Sure?',
 								:method => :delete,
@@ -13,6 +49,12 @@
 </li>
 <% end %>
 </ul>
+
+<p>ページ:<%= @posts.current_page %> / <%= @posts.num_pages %></p>
+<p><%= @posts.total_count %>件中<%= @posts.offset_value %>
+～<%= @posts.offset_value + @posts.length %>件を表示しています。</p>
+
+<p><%= paginate @posts %></p>
 
 <%= link_to 'HOME', posts_path %> | <%= link_to 'NEW', new_post_path %>
 

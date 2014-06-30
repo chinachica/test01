@@ -192,3 +192,26 @@ ja:
       long: '%Y年%m月%d日(%a) %H時%M分%S秒 %z'
       short: '%y/%m/%d %H:%M'
     pm: 午後
+  views:
+    pagination:
+      previous: "« 前ページ" 
+      next: "次ページ »" 
+      truncate: "..." 
+      first: "最初" 
+      last: "最後"
+    activerecord:
+      models:
+       category: category
+
+    attributes:
+      category:
+       name: カテゴリ名
+       Back: 前画面
+
+    link:
+      New: 追加
+      Show: 表示
+      Edit: 編集
+      Destroy: 削除
+      Back: 前画面
+      NewCategory: 新規カテゴリ

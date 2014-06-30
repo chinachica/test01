@@ -1,0 +1,18 @@
+<h2>月別アーカイブ</h2>
+
+<div id="news">
+<ul>
+
+<% @post_months.each do |month, posts| %>
+<li>
+<% dl = month.strftime("%Y%m") %>
+	<a href="/month_list/<%= dl %>">
+		<% m = month.strftime("%Y年%m月") %>
+		<%= m %>
+	</a>
+	(<%= posts.count %>)
+</li>
+<% end %>
+
+</ul>
+</div>
