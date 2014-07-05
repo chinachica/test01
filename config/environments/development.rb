@@ -1,3 +1,5 @@
+#coding: utf-8
+
 Blog::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -14,7 +16,7 @@ Blog::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  #config.action_mailer.raise_delivery_errors = false
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -44,8 +46,8 @@ Blog::Application.configure do
     :port => '587',
     :domain => 'smtp.gmail.com',
     :authentication => 'plain',
-    :user_name => 'ユーザー名@gmail.com',
-    :password => 'gmailパスワード'
+    :user_name => 'chinatsu.practice@gmail.com',
+    :password => 'test_test'
   }
 
 end
